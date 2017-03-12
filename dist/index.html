@@ -5,7 +5,34 @@
     <title>Bloc Base Project</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
-<body>
+<body ng-app="auth">
+   <!--  <nav>
+      <a ui-sref="home">Home</a>
+      <a ui-sref="page1">Page1</a>
+      <a ui-sref="page2">Page2</a>
+    </nav> -->
+    <hr>
+    <ui-view></ui-view>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBTp90h8GuDkJDeGXfwLUc2j4McIqmAWwo",
+        authDomain: "bloc-chat-c0e87.firebaseapp.com",
+        databaseURL: "https://bloc-chat-c0e87.firebaseio.com",
+        storageBucket: "bloc-chat-c0e87.appspot.com",
+        messagingSenderId: "955000975581"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/HomeController.js"></script>
+    <script src="/scripts/services/AuthService.js"></script>
+    <script src="/scripts/controllers/Page1Controller.js"></script>
 </body>
 </html>

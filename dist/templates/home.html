@@ -1,1 +1,10 @@
-<h1>Home Page</h1>
+<div>
+  <h2>Login</h2>
+  <form>
+  <input type="email" ng-model="email" placeholder="email" required><br>
+  <input type="password" ng-model="password" placeholder="password" required><br>
+  <button ng-click="home.login(email, password)">Sign in</button><br>
+  <span>{{errorMessage}}</span>
+  <button ng-click="home.signup()">new user sign up</button><br>
+  </form>
+</div>

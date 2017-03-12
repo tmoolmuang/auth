@@ -1,20 +1,21 @@
 (function() {
-  function homeCtrlFunct($scope, $state) {
+  function homeCtrlFunct($scope, $state, AuthService) {
+    this.errorMessage = null;
+    this.signin = function(email, password) {
+      var result = AuthService.signin(email, password);
 
-    this.login = function(email, password) {
-      // console.log(email);
-      // console.log(password);
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(function(firebaseUser) {
-          $state.go('page1');
-        })
-        .catch(function(error) {
-          $scope.$apply(function() {
-           $scope.errorMessage = error.message;
-          });
+      setTimeout(function () {
+        $scope.$apply(function () {
+          $scope.errorMessage = AuthService.errorMessage;
         });
+      }, 1000);
+
+      console.log(AuthService);
     };
+
+    this.test = function() {
+      console.log(AuthService.user);
+    }
 
     this.signup = function() {
       $state.go('page2');
@@ -23,5 +24,5 @@
 
   angular
     .module('auth')
-    .controller('HomeController', ['$scope', '$state', homeCtrlFunct]);
+    .controller('HomeController', ['$scope', '$state', 'AuthService', homeCtrlFunct]);
 })();

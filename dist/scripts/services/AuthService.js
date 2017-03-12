@@ -1,10 +1,24 @@
 (function() {
-  function AuthSrvcFunct($firebaseAuth) {
-    var ref = new Firebase("https://bloc-chat-c0e87.firebaseio.com/");
-    return $firebaseAuth(ref);
+  function AuthSrvcFunct() {
+    var AuthService = {};
+    AuthService.errorMessage = null;
+    AuthService.user = null;
+
+    AuthService.signin = function(email, password) {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(function(firebaseUser) {
+          AuthService.user = firebaseUser;
+          //console.log(firebaseUser);
+        })
+        .catch(function(error) {
+          AuthService.errorMessage = error.message;
+        });
+    };
+
+    return AuthService;
   }
 
   angular
     .module('auth')
-    .factory('AuthService', ["$firebaseAuth", 'firebase', AuthSrvcFunct]);
+    .factory('AuthService', [AuthSrvcFunct]);
 })();

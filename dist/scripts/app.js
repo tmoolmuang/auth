@@ -6,19 +6,20 @@
         requireBase: false
       });
     $stateProvider
-      .state('home', {
+      .state('login', {
         url: '/',
+        controller: "LoginController as login",
+        templateUrl: '/templates/login.html'
+      })
+      .state('home', {
+        url: '/home',
         controller: "HomeController as home",
         templateUrl: '/templates/home.html'
       })
-      .state('page1', {
-        url: '/page1',
-        controller: "Page1Controller as p1",
-        templateUrl: '/templates/page1.html'
-      })
-     .state('page2', {
-        url: '/page2',
-        templateUrl: '/templates/page2.html'
+      .state('register', {
+        url: '/register',
+        controller: "RegisterController as reg",
+        templateUrl: '/templates/register.html'
       });
   }
 

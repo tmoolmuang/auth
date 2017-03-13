@@ -1,0 +1,14 @@
+<div>
+  <h2>Bloc chat - login</h2>
+  <form>
+    <input type="email" ng-model="email" placeholder="email" required><br>
+    <input type="password" ng-model="password" placeholder="password" required><br>
+    <button ng-click="login.signin(email, password)">Sign in</button><br>
+    <span>{{errorMessage}}</span><br>
+    <button ng-click="login.signup()">new user sign up</button><br>
+  </form>
+  <!-- <br><br>
+  <button ng-click="login.checkAuth()">Check Auth</button><br>
+  <button ng-show="login.AuthService.user" ng-click="login.signout()">Sign out</button><br>
+  <button ng-click="login.signout()">Sign out</button><br> -->
+</div>

@@ -8,9 +8,8 @@
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function(firebaseUser) {
           AuthService.user = firebaseUser;
-          AuthService.errorMessage = null; //may not need
+          AuthService.errorMessage = null;
           $state.go('home');
-          //console.log(firebaseUser);
         })
         .catch(function(error) {
           AuthService.errorMessage = error.message;
@@ -21,12 +20,10 @@
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function(firebaseUser) {
           AuthService.user = firebaseUser;
-          AuthService.errorMessage = null; //may not need
+          AuthService.errorMessage = null;
           $state.go('home');
-          console.log("User " + firebaseUser.uid + " created successfully!");
         })
         .catch(function(error) {
-          console.error("Error: ", error);
           AuthService.errorMessage = error.message;
         });
     };
@@ -37,7 +34,7 @@
           console.log(user.email);
         }
         else {
-          console.log("checkAuth and user is signedout!");
+          console.log("checkAuth and user is signed-out!");
         }
       });
     };

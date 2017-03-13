@@ -1,6 +1,6 @@
 (function() {
   function homeCtrlFunct(AuthService) {
-    this.test = AuthService.user.email;
+    this.email = AuthService.user.email;
     this.signout = function() {
       AuthService.signout();
     }

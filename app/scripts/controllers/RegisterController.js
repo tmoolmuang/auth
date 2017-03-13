@@ -7,7 +7,7 @@
         $scope.$apply(function () {
           $scope.errorMessage = AuthService.errorMessage;
         });
-      }, 1000);
+      }, 2000);
     };
 
     this.checkAuth = AuthService.checkAuth;
